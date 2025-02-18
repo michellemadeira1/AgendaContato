@@ -7,30 +7,20 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SwaggerConfig {
 
-   
     @Bean
-    public GroupedOpenApi pessoasApi() {
+    public GroupedOpenApi publicApi() {
         return GroupedOpenApi.builder()
-                .group("pessoas") 
-                .pathsToMatch("/pessoas/**") 
+                .group("pessoas")
+                .pathsToMatch("/api/pessoas/**")  
                 .build();
     }
-
 
     @Bean
     public GroupedOpenApi contatosApi() {
         return GroupedOpenApi.builder()
-                .group("contatos") 
-                .pathsToMatch("/contatos/**") 
-                .build();
-    }
-
-
-    @Bean
-    public GroupedOpenApi apiGeral() {
-        return GroupedOpenApi.builder()
-                .group("geral") 
-                .pathsToMatch("/**") 
+                .group("contatos")
+                .pathsToMatch("/api/contatos/**") 
                 .build();
     }
 }
+
