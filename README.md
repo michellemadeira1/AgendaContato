@@ -82,7 +82,7 @@ Este projeto tem como objetivo criar uma API Rest para gerenciar um sistema de c
 🔹 Clonando o Repositório
 Para obter o código-fonte do projeto, execute o seguinte comando no terminal:
 
- git clone https://github.com/seu-usuario/seu-repositorio.git
+ git clone https://github.com/michellemadeira1/AgendaContato.git
 
 🔹 Buildando e Rodando no Eclipse
 Abra o Eclipse e importe o projeto:
