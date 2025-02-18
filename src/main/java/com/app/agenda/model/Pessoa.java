@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,24 +17,35 @@ import jakarta.validation.constraints.NotNull;
 @Entity
 @Table(name = "pessoa")
 public class Pessoa {
-	
-	
+
+	@Schema(description = "ID único da pessoa", example = "1")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@Schema(description = "Nome da pessoa", example = "João da Silva")
 	@NotNull
 	private String nome;
+
+	@Schema(description = "Endereço da pessoa", example = "Rua ABC, 123")
 	private String endereco;
+
+	@Schema(description = "Cidade da pessoa", example = "São Paulo")
 	private String cidade;
+
+	@Schema(description = "Estado da pessoa", example = "SP")
 	private String uf;
+
+	@Schema(description = "CEP da pessoa", example = "12345-678")
 	private String cep;
-	
-	
+
+	@Schema(description = "Lista de contatos associados à pessoa")
 	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("pessoa")
 	private List<Contato> contato;
-	
-	public Pessoa() {}
+
+	public Pessoa() {
+	}
 
 	public Pessoa(Long id, @NotNull String nome, String endereco, String cidade, String uf, String cep,
 			List<Contato> contato) {
@@ -102,5 +114,5 @@ public class Pessoa {
 	public void setContato(List<Contato> contato) {
 		this.contato = contato;
 	}
-	
+
 }
