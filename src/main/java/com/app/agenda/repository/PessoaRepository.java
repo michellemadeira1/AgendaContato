@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 import com.app.agenda.model.Pessoa;
 
 @Repository
-public interface PessoaRepository extends JpaRepository<Pessoa,Long> {
+public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 
 	List<Pessoa> findAllByNomeContainingIgnoreCase(String nome);
-	
+
 }
